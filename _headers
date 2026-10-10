@@ -1,0 +1,9 @@
+# Cloudflare Pages 自定义响应头
+# 文档：https://developers.cloudflare.com/pages/configuration/headers/
+#
+# 这里只加安全类头部。刻意不设置 Content-Security-Policy：
+# 站点的 favicon 兜底逻辑使用了内联 onerror 属性，加 CSP 会让首字母头像失效。
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

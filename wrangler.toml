@@ -1,0 +1,13 @@
+# Cloudflare Pages 配置（Wrangler v3+）
+# 文档：https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+
+name = "glass-space"
+compatibility_date = "2026-10-10"
+
+# 纯静态站点，没有构建步骤：仓库根目录就是部署输出目录
+# （README.md / .gitignore 之类会被一并上传，无害；不想上传可删掉再传）
+pages_build_output_dir = "."
+
+# ⚠️ 部署前请确认 .workbuddy/ 目录没有被打包进去 —— 那是本地笔记，不应公开。
+#    Git 方式：已由 .gitignore 排除，自动生效。
+#    拖拽 / wrangler 方式：打包前手动删掉，或改用 wrangler 的 --exclude 参数。

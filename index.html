@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#5b6cff" />
+<meta name="description" content="Glass Space · 纯静态玻璃拟态个人工作台，含链接导航、可视化编辑与可自定义方块池的俄罗斯方块。" />
+<title>Glass Space · 玻璃拟态工作台</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ============ 背景层（分层：底色 / 光晕球 / 自定义图片 / 遮罩） ============ -->
+<div class="bg-base"  id="bgBase"></div>
+<div class="bg-orbs"  id="bgOrbs" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+  <span class="orb orb-4"></span>
+</div>
+<div class="bg-image" id="bgImage"></div>
+<div class="bg-mask"  id="bgMask"></div>
+
+<!-- ============ 主体骨架 ============ -->
+<div class="app-shell">
+
+  <!-- 侧边导航（桌面端） -->
+  <aside class="sidebar glass" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">G</div>
+      <div class="brand-text">
+        <b>Glass Space</b>
+        <span>玻璃拟态工作台</span>
+      </div>
+    </div>
+
+    <nav class="nav" id="navList"></nav>
+
+    <div class="sidebar-foot">
+      <button class="btn btn-ghost btn-block btn-sm" id="btnAddSection" hidden>＋ 新建板块</button>
+      <p class="sidebar-tip">所有数据仅保存在你的浏览器本地</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar glass">
+      <h1 class="topbar-title" id="topTitle">主页</h1>
+      <div class="topbar-actions">
+        <span class="edit-flag" id="editFlag" hidden>编辑中</span>
+        <label class="switch" title="开启后可改标题 / 拖拽排序 / 插入网页">
+          <input type="checkbox" id="editToggle" />
+          <span class="switch-track"><span class="switch-dot"></span></span>
+          <span class="switch-text">编辑模式</span>
+        </label>
+      </div>
+    </header>
+
+    <div class="view" id="view"></div>
+  </main>
+</div>
+
+<!-- 底部导航（移动端） -->
+<nav class="tabbar glass" id="tabbar"></nav>
+
+<div id="modalRoot"></div>
+<div id="toastRoot" class="toast-root"></div>
+
+<!-- ============ 脚本（经典 script 标签，直接双击 index.html 即可运行） ============ -->
+<script src="js/store.js"></script>
+<script src="js/background.js"></script>
+<script src="js/editor.js"></script>
+<script src="js/views.js"></script>
+<script src="js/tetris.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
